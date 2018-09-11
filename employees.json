@@ -1,0 +1,34 @@
+{
+	"employees": [
+
+    {
+        "name": "Alena Padsekina",
+        "team": "HTML5/IFE"
+    },
+    {
+        "name": "Sergey Bondar",
+        "team": "Main releases"
+    },
+    {
+        "name": "Maxim Marasanau",
+        "team": "CBC"
+    },
+    {
+        "name": "Volha Lenkevich",
+        "team": "Main releases"
+    },
+    {
+        "name": "Dmitry Minin",
+        "team": "CBC"
+    },
+    {
+        "name": "Dmitry Bashlak",
+        "team": "HTML5/IFE"
+    },
+    {
+        "name": "Denis Podgorny",
+        "team": "Main releases"
+    }
+
+	]
+}

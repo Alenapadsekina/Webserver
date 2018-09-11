@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Task 4 - WT Teams</title>
+    <link rel="stylesheet" type="text/css" href="public/css/styles.css">
+    <script src="public/employeesAvailability.js"></script>
+</head>
+
+<body>
+
+    <span class="teams">
+		<span class="section">
+			Teams
+		</span>
+
+	    <span>
+	    		<select id="teams" class="dropdown" onchange="populateTeamMembers()">
+					<option value="" > </option>
+					<option value="Main releases" class="dropdown">Main releases</option>
+					<option value="HTML5/IFE" class="dropdown">IFE / HTML5</option>
+					<option value="CBC" class="dropdown">CBC</option>
+				</select>
+
+		</span>
+
+    </span>
+
+
+
+
+    <span class="members">
+		<span class="section">
+			Members
+		</span>
+    	<span class="section">
+			<select id="teamMembers">
+			</select>
+		</span>
+    </span>
+
+    <span class="reportButton">
+		<input  class="button" type="button" value="Generate report" onclick="generateReport()">
+		<div id="report">
+			<div id="errorMessage"> </div>
+			<table id="reportTable"> </table>
+		</div>
+	</span>
+
+</body>
+
+</html>
