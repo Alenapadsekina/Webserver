@@ -5,8 +5,26 @@ var url = require('url');
 
 http.createServer(function (req, res) {
 	 res.writeHead(200, {'Content-Type': 'text/html'});
+	 let newUrl = url.parse(req.url, true);
+	 console.log(newUrl);
+
+	 if (newUrl.pathname === '/getTeams') {
+		 let teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
+		 let teamString = JSON.stringify(teams);
+
+			res.end(teamString);
+	 }
+
+	 if (newUrl.pathname === '/getEmployees') {
+		 let employees = JSON.parse(fs.readFileSync('employees.json', 'utf8'));
+		 let employeesString = JSON.stringify(employees);
+
+			res.end(employeesString);
+	 }
+
 	 var q = url.parse(req.url, true).query;
-	  var txt = q.team + " " + q.employee;
+
+	 var txt = q.team + " " + q.employee;
 
 	  res.end(txt);
 }).listen(8888, () => console.log("Server has started."));
@@ -15,7 +33,7 @@ http.createServer(function (req, res) {
 
 
 
-var teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
-var employees = JSON.parse(fs.readFileSync('employees.json', 'utf8'));
-console.log(teams);
-console.log(employees);
+//var teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
+//var employees = JSON.parse(fs.readFileSync('employees.json', 'utf8'));
+//console.log(teams);
+//console.log(employees);
