@@ -2,38 +2,36 @@ var fs = require("fs");
 var http = require("http");
 var url = require('url');
 
+http.createServer(function(req, res) {
+    res.writeHead(200, {
+        'Content-Type': 'text/html'
+    });
+    let newUrl = url.parse(req.url, true);
 
-http.createServer(function (req, res) {
-	 res.writeHead(200, {'Content-Type': 'text/html'});
-	 let newUrl = url.parse(req.url, true);
-	 console.log(newUrl);
+    if (newUrl.pathname === '/getTeams') {
+        let teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
+        let teamString = JSON.stringify(teams);
+        res.end(teamString);
+    }
 
-	 if (newUrl.pathname === '/getTeams') {
-		 let teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
-		 let teamString = JSON.stringify(teams);
+    if (newUrl.pathname === '/getEmployees') {
+        let employees = JSON.parse(fs.readFileSync('employees.json', 'utf8'));
 
-			res.end(teamString);
-	 }
+        var q = newUrl.query;
+        let teamId = q.teamId;
+        console.log(teamId);
+        let IdParam = Number(teamId);
+        let employeesArray = [];
+        for (let i = 0; i < employees.length; i++) {
+            if (employees[i].teamId === IdParam) {
+                employeesArray.push(employees[i]);
+            }
+        }
 
-	 if (newUrl.pathname === '/getEmployees') {
-		 let employees = JSON.parse(fs.readFileSync('employees.json', 'utf8'));
-		 let employeesString = JSON.stringify(employees);
+        console.log(employeesArray);
 
-			res.end(employeesString);
-	 }
+        let employeesString = JSON.stringify(employeesArray);
 
-	 var q = url.parse(req.url, true).query;
-
-	 var txt = q.team + " " + q.employee;
-
-	  res.end(txt);
+        res.end(employeesString);
+    }
 }).listen(8888, () => console.log("Server has started."));
-
-
-
-
-
-//var teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
-//var employees = JSON.parse(fs.readFileSync('employees.json', 'utf8'));
-//console.log(teams);
-//console.log(employees);
