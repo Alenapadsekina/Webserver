@@ -1,6 +1,6 @@
-var fs = require("fs");
-var http = require("http");
-var url = require('url');
+let fs = require("fs");
+let http = require("http");
+let url = require('url');
 
 http.createServer(function(req, res) {
     res.writeHead(200, {
@@ -17,13 +17,13 @@ http.createServer(function(req, res) {
     if (newUrl.pathname === '/getEmployees') {
         let employees = JSON.parse(fs.readFileSync('employees.json', 'utf8'));
 
-        var q = newUrl.query;
+        let q = newUrl.query;
         let teamId = q.teamId;
         console.log(teamId);
-        let IdParam = Number(teamId);
+        let idParam = Number(teamId);
         let employeesArray = [];
         for (let i = 0; i < employees.length; i++) {
-            if (employees[i].teamId === IdParam) {
+            if (employees[i].teamId === idParam) {
                 employeesArray.push(employees[i]);
             }
         }
@@ -34,5 +34,5 @@ http.createServer(function(req, res) {
 
         res.end(employeesString);
     }
-		
+
 }).listen(8888, () => console.log("Server has started."));
