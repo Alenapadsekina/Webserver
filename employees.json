@@ -1,11 +1,9 @@
-{ "employees": [
-	{"id": 1, "team": "Main releases", "employee": "Sergey Bondar"},
-	{"id": 2, "team": "Main releases", "employee": "Volha Lenkevich"},
-	{"id": 3, "team": "Main releases", "employee": "Denis Podgorny"},
-	{"id": 4, "team": "HTML5/IFE", "employee": "Alena Padsekina"},
-	{"id": 5, "team": "HTML5/IFE", "employee": "Dmitry Bashlak"},
-	{"id": 6, "team": "CBC", "employee": "Maxim Marasanau"},
-	{"id": 7, "team": "HTML5/IFE", "employee": "Dmitry Minin"}
+[
+	{"id": 1, "teamId": 1, "employee": "Sergey Bondar"},
+	{"id": 2, "teamId": 1, "employee": "Volha Lenkevich"},
+	{"id": 3, "teamId": 1, "employee": "Denis Podgorny"},
+	{"id": 4, "teamId": 2, "employee": "Alena Padsekina"},
+	{"id": 5, "teamId": 2, "employee": "Dmitry Bashlak"},
+	{"id": 6, "teamId": 3, "employee": "Maxim Marasanau"},
+	{"id": 7, "teamId": 3, "employee": "Dmitry Minin"}
 ]
-
-}
