@@ -14,7 +14,7 @@ http.createServer(function(req, res) {
     if (newUrl.pathname === '/getTeams') {
         let teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
         let teamString = JSON.stringify(teams);
-  //      res.header("Access-Control-Allow-Origin", "*");
+
         res.end(teamString);
     }
 
@@ -35,7 +35,7 @@ http.createServer(function(req, res) {
         console.log(employeesArray);
 
         let employeesString = JSON.stringify(employeesArray);
-  //      res.setHeader("Access-Control-Allow-Origin", '*');
+
         res.end(employeesString);
     }
 
