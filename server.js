@@ -4,13 +4,17 @@ let url = require('url');
 
 http.createServer(function(req, res) {
     res.writeHead(200, {
-        'Content-Type': 'text/html'
+        'Content-Type': '*/*',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin,  X-Requested-With, Content-Type, Accept'
     });
+
     let newUrl = url.parse(req.url, true);
 
     if (newUrl.pathname === '/getTeams') {
         let teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
         let teamString = JSON.stringify(teams);
+
         res.end(teamString);
     }
 
