@@ -10,7 +10,7 @@ http.createServer(function(req, res) {
     });
 
     let newUrl = url.parse(req.url, true);
-
+console.log(newUrl);
     if (newUrl.pathname === '/getTeams') {
         let teams = JSON.parse(fs.readFileSync('teams.json', 'utf8'));
         let teamString = JSON.stringify(teams);
