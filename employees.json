@@ -1,7 +1,5 @@
 [
-	{"id": 0, "teamId": 1, "employee": ""},
-	{"id": 1, "teamId": 2, "employee": ""},
-	{"id": 2, "teamId": 3, "employee": ""},
+ 
 	{"id": 3, "teamId": 1, "employee": "Sergey Bondar"},
 	{"id": 4, "teamId": 1, "employee": "Volha Lenkevich"},
 	{"id": 5, "teamId": 1, "employee": "Denis Podgorny"},
