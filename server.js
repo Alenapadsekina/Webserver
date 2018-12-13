@@ -27,8 +27,14 @@ console.log(newUrl);
         let idParam = Number(teamId);
         let employeesArray = [];
         for (let i = 0; i < employees.length; i++) {
+//          employees[i].status = "status";
+            let person = employees[i].employee.split(" ");
+            if (person[1].length % 2 == 0) {
+                employees[i].status = "Available";
+              }
             if (employees[i].teamId === idParam) {
                 employeesArray.push(employees[i]);
+
             }
         }
 
